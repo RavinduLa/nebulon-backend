@@ -7,8 +7,11 @@
 package com.example.nebulonbackend.service;
 
 import com.example.nebulonbackend.adapter.ArticlesAdapter;
+import com.example.nebulonbackend.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ArticlesService {
@@ -17,5 +20,9 @@ public class ArticlesService {
     @Autowired
     public ArticlesService(ArticlesAdapter articlesAdapter) {
         this.articlesAdapter = articlesAdapter;
+    }
+
+    public List<Article> getAllArticles() {
+        return articlesAdapter.getAll();
     }
 }

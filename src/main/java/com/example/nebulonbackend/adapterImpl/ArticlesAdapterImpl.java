@@ -26,7 +26,7 @@ public class ArticlesAdapterImpl implements ArticlesAdapter {
 
     @Override
     public Article save(Article article) {
-        return null;
+        return articlesMongoRepository.save(article);
     }
 
     @Override
@@ -36,6 +36,6 @@ public class ArticlesAdapterImpl implements ArticlesAdapter {
 
     @Override
     public List<Article> getAll() {
-        return null;
+        return articlesMongoRepository.findAll();
     }
 }
