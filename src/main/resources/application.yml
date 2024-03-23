@@ -1,0 +1,6 @@
+okta:
+  oauth2:
+    # Replace with the domain of your Auth0 tenant.
+    issuer: https://dev-4niilg28gc5v6yqb.us.auth0.com/
+    # Replace with the API Identifier for your Auth0 API.
+    audience: https://nebulon-api.com
