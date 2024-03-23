@@ -31,4 +31,9 @@ public class ArticlesController {
     public List<Article> getAllArticles() {
         return articlesService.getAllArticles();
     }
+
+    @GetMapping("open")
+    public String articlesOpen() {
+        return "Open Article endpoint";
+    }
 }
