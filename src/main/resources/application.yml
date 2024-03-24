@@ -1,0 +1,7 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-4niilg28gc5v6yqb.us.auth0.com/
+          audiences: https://nebulon-api.com
