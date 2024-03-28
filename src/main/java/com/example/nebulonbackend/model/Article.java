@@ -6,24 +6,26 @@
 
 package com.example.nebulonbackend.model;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Document("articles")
 public class Article {
+    @Id
     private String id;
     private String title;
     private  String content;
     private String authorId;
-    private Date createdDateTime;
-    private  Date publishedDateTime;
+    private LocalDateTime createdDateTime;
+    private  LocalDateTime publishedDateTime;
     private  boolean isPublished;
 
     public Article() {
     }
 
-    public Article(String id, String title, String content, String authorId, Date createdDateTime, Date publishedDateTime, boolean isPublished) {
+    public Article(String id, String title, String content, String authorId, LocalDateTime createdDateTime, LocalDateTime publishedDateTime, boolean isPublished) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -57,19 +59,19 @@ public class Article {
         this.content = content;
     }
 
-    public Date getCreatedDateTime() {
+    public LocalDateTime getCreatedDateTime() {
         return createdDateTime;
     }
 
-    public void setCreatedDateTime(Date createdDateTime) {
+    public void setCreatedDateTime(LocalDateTime createdDateTime) {
         this.createdDateTime = createdDateTime;
     }
 
-    public Date getPublishedDateTime() {
+    public LocalDateTime getPublishedDateTime() {
         return publishedDateTime;
     }
 
-    public void setPublishedDateTime(Date publishedDateTime) {
+    public void setPublishedDateTime(LocalDateTime publishedDateTime) {
         this.publishedDateTime = publishedDateTime;
     }
 
