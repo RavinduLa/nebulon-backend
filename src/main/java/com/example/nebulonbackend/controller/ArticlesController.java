@@ -6,6 +6,7 @@
 
 package com.example.nebulonbackend.controller;
 
+import com.example.nebulonbackend.dto.ArticleDto;
 import com.example.nebulonbackend.model.Article;
 import com.example.nebulonbackend.service.ArticlesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,8 @@ public class ArticlesController {
     }
 
     @PostMapping("create")
-    public String createArticle() {
-        return "Create Article Allowed";
+    public ArticleDto createArticle(@RequestBody ArticleDto articleDto) {
+        return articlesService.saveArticle(articleDto);
     }
 
     @GetMapping("open")
