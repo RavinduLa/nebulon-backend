@@ -7,6 +7,8 @@
 package com.example.nebulonbackend.service;
 
 import com.example.nebulonbackend.adapter.ArticlesAdapter;
+import com.example.nebulonbackend.converters.ArticleDtoConverter;
+import com.example.nebulonbackend.dto.ArticleDto;
 import com.example.nebulonbackend.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +24,15 @@ public class ArticlesService {
         this.articlesAdapter = articlesAdapter;
     }
 
+    //Returns all the articles in ths system
     public List<Article> getAllArticles() {
         return articlesAdapter.getAll();
+    }
+
+    //Saves a given Article DTO
+    public ArticleDto saveArticle(ArticleDto articleDto) {
+        Article article = ArticleDtoConverter.convertDTOToModelWithNoId(articleDto);
+        Article returnArticle = articlesAdapter.save(article);
+        return ArticleDtoConverter.convertModelToDTOWithID(returnArticle);
     }
 }
