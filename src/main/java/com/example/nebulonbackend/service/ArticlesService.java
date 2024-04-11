@@ -13,6 +13,7 @@ import com.example.nebulonbackend.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -32,6 +33,9 @@ public class ArticlesService {
     //Saves a given Article DTO
     public ArticleDto saveArticle(ArticleDto articleDto) {
         Article article = ArticleDtoConverter.convertDTOToModelWithNoId(articleDto);
+        article.setCreatedDateTime(LocalDateTime.now());
+        article.setPublishedDateTime(LocalDateTime.now());
+        article.setPublished(false);
         Article returnArticle = articlesAdapter.save(article);
         return ArticleDtoConverter.convertModelToDTOWithID(returnArticle);
     }
