@@ -12,6 +12,7 @@ public class ArticleDto {
     private String id;
     private String title;
     private  String content;
+    private  String summary;
     private String authorId;
     private LocalDateTime createdDateTime;
     private  LocalDateTime publishedDateTime;
@@ -20,10 +21,11 @@ public class ArticleDto {
     public ArticleDto() {
     }
 
-    public ArticleDto(String id, String title, String content, String authorId, LocalDateTime createdDateTime, LocalDateTime publishedDateTime, boolean isPublished) {
+    public ArticleDto(String id, String title, String content, String summary, String authorId, LocalDateTime createdDateTime, LocalDateTime publishedDateTime, boolean isPublished) {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.summary = summary;
         this.authorId = authorId;
         this.createdDateTime = createdDateTime;
         this.publishedDateTime = publishedDateTime;
@@ -52,6 +54,14 @@ public class ArticleDto {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
     public String getAuthorId() {
@@ -92,6 +102,7 @@ public class ArticleDto {
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
+                ", summary='" + summary + '\'' +
                 ", authorId='" + authorId + '\'' +
                 ", createdDateTime=" + createdDateTime +
                 ", publishedDateTime=" + publishedDateTime +
