@@ -31,6 +31,7 @@ public class ArticleDtoConverter {
         ArticleDto articleDto = new ArticleDto();
         articleDto.setTitle(article.getTitle());
         articleDto.setContent(article.getContent());
+        articleDto.setSummary(article.getSummary());
         articleDto.setAuthorId(article.getAuthorId());
         articleDto.setCreatedDateTime(article.getCreatedDateTime());
         articleDto.setPublishedDateTime(article.getPublishedDateTime());
@@ -59,6 +60,7 @@ public class ArticleDtoConverter {
         Article article = new Article();
         article.setTitle(articleDto.getTitle());
         article.setContent(articleDto.getContent());
+        article.setSummary(articleDto.getSummary());
         article.setAuthorId(articleDto.getAuthorId());
         article.setCreatedDateTime(articleDto.getCreatedDateTime());
         article.setPublishedDateTime(articleDto.getPublishedDateTime());
