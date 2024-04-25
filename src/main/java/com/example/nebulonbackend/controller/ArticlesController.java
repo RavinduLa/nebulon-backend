@@ -47,6 +47,12 @@ public class ArticlesController {
         return articlesService.saveArticle(articleDto);
     }
 
+    @PutMapping("updateById")
+    public ArticleDto updateArticle(@RequestBody ArticleDto articleDto) {
+        return articlesService.updateArticleById(articleDto);
+    }
+
+
     @GetMapping("open")
     public String articlesOpen() {
         return "Open Article endpoint";

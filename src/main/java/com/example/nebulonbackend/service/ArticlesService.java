@@ -58,4 +58,14 @@ public class ArticlesService {
 ;        }
         return  articleDTOs;
     }
+
+    //Update an article by id
+    public ArticleDto updateArticleById(ArticleDto articleDto){
+        Article article = articlesAdapter.getById(articleDto.getId());
+        article.setTitle(articleDto.getTitle());
+        article.setSummary(articleDto.getSummary());
+        article.setContent(articleDto.getContent());
+        Article updatedArticle = articlesAdapter.updateById(articleDto.getId(), article);
+        return ArticleDtoConverter.convertModelToDTOWithID(updatedArticle);
+    }
 }

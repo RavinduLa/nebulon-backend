@@ -43,4 +43,9 @@ public class ArticlesAdapterImpl implements ArticlesAdapter {
     public List<Article> getByAuthorId(String id) {
         return articlesMongoRepository.findByAuthorId(id);
     }
+
+    @Override
+    public Article updateById(String id, Article article) {
+        return articlesMongoRepository.save(article);
+    }
 }
