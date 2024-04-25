@@ -30,6 +30,14 @@ public class ArticlesService {
         return articlesAdapter.getAll();
     }
 
+    public ArticleDto getArticleById(String id) {
+        Article article = articlesAdapter.getById(id);
+        if (article == null) {
+            System.out.println("Retrieved article is null");
+        }
+        return ArticleDtoConverter.convertModelToDTOWithID(article);
+    }
+
     //Saves a given Article DTO
     public ArticleDto saveArticle(ArticleDto articleDto) {
         Article article = ArticleDtoConverter.convertDTOToModelWithNoId(articleDto);

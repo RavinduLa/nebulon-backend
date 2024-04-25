@@ -31,6 +31,12 @@ public class ArticlesController {
         return articlesService.getAllArticles();
     }
 
+    @GetMapping("getById/{id}")
+    public ArticleDto getArticleById(@PathVariable String id) {
+        System.out.println("Received ID " + id);
+        return articlesService.getArticleById(id);
+    }
+
     @PostMapping("create")
     public ArticleDto createArticle(@RequestBody ArticleDto articleDto) {
         return articlesService.saveArticle(articleDto);

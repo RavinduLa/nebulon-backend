@@ -31,7 +31,7 @@ public class ArticlesAdapterImpl implements ArticlesAdapter {
 
     @Override
     public Article getById(String id) {
-        return null;
+        return articlesMongoRepository.findById(id).get();
     }
 
     @Override
