@@ -22,6 +22,7 @@ public class SecurityConfig{
                 //.requestMatchers("/api/articles/create").hasAnyAuthority("SCOPE_write:articles")
                 .requestMatchers("/api/articles/create").permitAll()
                 .requestMatchers("/api/articles/getById/*").permitAll()
+                .requestMatchers("/api/articles/getByAuthorId/*").permitAll()
                 .anyRequest().authenticated()
         ).oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults()));
         http.csrf(AbstractHttpConfigurer::disable);

@@ -37,6 +37,11 @@ public class ArticlesController {
         return articlesService.getArticleById(id);
     }
 
+    @GetMapping("getByAuthorId/{id}")
+    public List<ArticleDto> getArticlesByAuthorId(@PathVariable String id) {
+        return articlesService.getArticlesByAuthorId(id);
+    }
+
     @PostMapping("create")
     public ArticleDto createArticle(@RequestBody ArticleDto articleDto) {
         return articlesService.saveArticle(articleDto);

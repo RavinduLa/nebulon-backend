@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -46,5 +47,15 @@ public class ArticlesService {
         article.setPublished(false);
         Article returnArticle = articlesAdapter.save(article);
         return ArticleDtoConverter.convertModelToDTOWithID(returnArticle);
+    }
+
+    //Gets a list of article DTOs for a given author id
+    public List<ArticleDto> getArticlesByAuthorId(String id) {
+        List<Article> articles = articlesAdapter.getByAuthorId(id);
+        List<ArticleDto> articleDTOs = new ArrayList<ArticleDto>();
+        for(Article article : articles) {
+            articleDTOs.add(ArticleDtoConverter.convertModelToDTOWithID(article))
+;        }
+        return  articleDTOs;
     }
 }

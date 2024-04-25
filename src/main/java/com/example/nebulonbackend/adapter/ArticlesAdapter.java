@@ -14,4 +14,6 @@ public interface ArticlesAdapter {
     Article save(Article article);
     Article getById(String id);
     List<Article> getAll();
+
+    List<Article> getByAuthorId(String id);
 }
