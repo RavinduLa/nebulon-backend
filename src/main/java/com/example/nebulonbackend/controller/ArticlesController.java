@@ -47,7 +47,7 @@ public class ArticlesController {
         return articlesService.saveArticle(articleDto);
     }
 
-    @PutMapping("updateById")
+    @PutMapping("updateArticle")
     public ArticleDto updateArticle(@RequestBody ArticleDto articleDto) {
         return articlesService.updateArticleById(articleDto);
     }
