@@ -26,9 +26,19 @@ public class ArticlesService {
         this.articlesAdapter = articlesAdapter;
     }
 
-    //Returns all the articles in ths system
-    public List<Article> getAllArticles() {
-        return articlesAdapter.getAll();
+    //Returns all the published articles in ths system
+    public List<ArticleDto> getAllArticles() {
+        List<Article> articles = articlesAdapter.getAll(); //get all articles
+        List<ArticleDto> articleDTOs = new ArrayList<>();
+
+        for(Article article : articles) {
+            //Check if the article is published
+            if (article.isPublished()){
+                ArticleDto articleDto = ArticleDtoConverter.convertModelToDTOWithID(article); //get DTO instance
+                articleDTOs.add(articleDto); //Add to DTO list
+            }
+        }
+        return articleDTOs;
     }
 
     public ArticleDto getArticleById(String id) {
