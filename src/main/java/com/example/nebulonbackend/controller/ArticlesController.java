@@ -67,4 +67,9 @@ public class ArticlesController {
     public String articlesOpen() {
         return "Open Article endpoint";
     }
+
+    @DeleteMapping("delete/{id}")
+    public String delete(@PathVariable String id) {
+        return articlesService.deleteArticleById(id);
+    }
 }

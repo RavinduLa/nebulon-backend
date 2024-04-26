@@ -82,4 +82,9 @@ public class ArticlesService {
         article.setPublished(false);
         return ArticleDtoConverter.convertModelToDTOWithID(article);
     }
+
+    //Delete an article
+    public String deleteArticleById(String id) {
+        return articlesAdapter.deleteArticleById(id);
+    }
 }

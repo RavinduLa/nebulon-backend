@@ -67,4 +67,10 @@ public class ArticlesAdapterImpl implements ArticlesAdapter {
                 new Update().set("isPublished", false), Article.class );
         return article;
     }
+
+    @Override
+    public String deleteArticleById(String id) {
+        articlesMongoRepository.deleteById(id);
+        return id;
+    }
 }

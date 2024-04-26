@@ -26,6 +26,7 @@ public class SecurityConfig{
                 .requestMatchers("/api/articles/updateArticle").permitAll()
                 .requestMatchers("/api/articles/publish/*").permitAll()
                 .requestMatchers("/api/articles/unpublish/*").permitAll()
+                .requestMatchers("/api/articles/delete/*").permitAll()
                 .anyRequest().authenticated()
         ).oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults()));
         http.csrf(AbstractHttpConfigurer::disable);

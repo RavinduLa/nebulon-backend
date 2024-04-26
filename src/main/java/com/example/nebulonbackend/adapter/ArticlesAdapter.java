@@ -21,4 +21,6 @@ public interface ArticlesAdapter {
 
     Article publishArticle(String id);
     Article unPublishArticle(String id);
+
+    String deleteArticleById(String id);
 }
