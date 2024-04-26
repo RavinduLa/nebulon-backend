@@ -52,6 +52,16 @@ public class ArticlesController {
         return articlesService.updateArticleById(articleDto);
     }
 
+    @PutMapping("publish/{id}")
+    public ArticleDto publishArticle(@PathVariable String id){
+        return articlesService.publishArticle(id);
+    }
+
+    @PutMapping("unpublish/{id}")
+    public ArticleDto unPublishArticle(@PathVariable String id){
+        return articlesService.unPublishArticle(id);
+    }
+
 
     @GetMapping("open")
     public String articlesOpen() {

@@ -18,4 +18,7 @@ public interface ArticlesAdapter {
     List<Article> getByAuthorId(String id);
 
     Article updateById(String id, Article article);
+
+    Article publishArticle(String id);
+    Article unPublishArticle(String id);
 }

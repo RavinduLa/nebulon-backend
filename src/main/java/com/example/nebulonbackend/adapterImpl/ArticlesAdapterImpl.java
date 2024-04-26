@@ -10,6 +10,10 @@ import com.example.nebulonbackend.adapter.ArticlesAdapter;
 import com.example.nebulonbackend.model.Article;
 import com.example.nebulonbackend.repository.ArticlesMongoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -17,11 +21,12 @@ import java.util.List;
 @Component
 public class ArticlesAdapterImpl implements ArticlesAdapter {
     private final ArticlesMongoRepository articlesMongoRepository;
-
+    private final MongoTemplate mongoTemplate;
 
     @Autowired
-    public ArticlesAdapterImpl(ArticlesMongoRepository articlesMongoRepository) {
+    public ArticlesAdapterImpl(ArticlesMongoRepository articlesMongoRepository, MongoTemplate mongoTemplate) {
         this.articlesMongoRepository = articlesMongoRepository;
+        this.mongoTemplate = mongoTemplate;
     }
 
     @Override
@@ -47,5 +52,19 @@ public class ArticlesAdapterImpl implements ArticlesAdapter {
     @Override
     public Article updateById(String id, Article article) {
         return articlesMongoRepository.save(article);
+    }
+
+    @Override
+    public Article publishArticle(String id) {
+        Article article = mongoTemplate.findAndModify(Query.query(Criteria.where("id").is(id)),
+                new Update().set("isPublished", true), Article.class );
+        return article;
+    }
+
+    @Override
+    public Article unPublishArticle(String id) {
+        Article article = mongoTemplate.findAndModify(Query.query(Criteria.where("id").is(id)),
+                new Update().set("isPublished", false), Article.class );
+        return article;
     }
 }
