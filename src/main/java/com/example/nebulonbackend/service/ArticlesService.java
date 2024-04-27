@@ -83,6 +83,7 @@ public class ArticlesService {
     public ArticleDto publishArticle(String id) {
         Article article = articlesAdapter.publishArticle(id);
         article.setPublished(true);
+        article.setPublishedDateTime(LocalDateTime.now());
         return ArticleDtoConverter.convertModelToDTOWithID(article);
     }
 
