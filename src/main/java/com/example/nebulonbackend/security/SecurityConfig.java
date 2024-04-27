@@ -21,6 +21,12 @@ public class SecurityConfig{
                 .requestMatchers("/api/articles/getAll").permitAll()
                 //.requestMatchers("/api/articles/create").hasAnyAuthority("SCOPE_write:articles")
                 .requestMatchers("/api/articles/create").permitAll()
+                .requestMatchers("/api/articles/getById/*").permitAll()
+                .requestMatchers("/api/articles/getByAuthorId/*").permitAll()
+                .requestMatchers("/api/articles/updateArticle").permitAll()
+                .requestMatchers("/api/articles/publish/*").permitAll()
+                .requestMatchers("/api/articles/unpublish/*").permitAll()
+                .requestMatchers("/api/articles/delete/*").permitAll()
                 .anyRequest().authenticated()
         ).oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults()));
         http.csrf(AbstractHttpConfigurer::disable);

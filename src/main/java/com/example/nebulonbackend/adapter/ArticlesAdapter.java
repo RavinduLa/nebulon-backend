@@ -14,4 +14,13 @@ public interface ArticlesAdapter {
     Article save(Article article);
     Article getById(String id);
     List<Article> getAll();
+
+    List<Article> getByAuthorId(String id);
+
+    Article updateById(String id, Article article);
+
+    Article publishArticle(String id);
+    Article unPublishArticle(String id);
+
+    String deleteArticleById(String id);
 }
