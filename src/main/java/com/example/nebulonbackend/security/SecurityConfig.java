@@ -19,14 +19,14 @@ public class SecurityConfig{
                 .requestMatchers("/error/**").permitAll() //When errors are thrown, this path is given. Therefore, it must be permitted for all.
                 .requestMatchers("/api/articles/open").permitAll()
                 .requestMatchers("/api/articles/getAll").permitAll()
-                //.requestMatchers("/api/articles/create").hasAnyAuthority("SCOPE_write:articles")
-                .requestMatchers("/api/articles/create").permitAll()
                 .requestMatchers("/api/articles/getById/*").permitAll()
                 .requestMatchers("/api/articles/getByAuthorId/*").permitAll()
-                .requestMatchers("/api/articles/updateArticle").permitAll()
-                .requestMatchers("/api/articles/publish/*").permitAll()
-                .requestMatchers("/api/articles/unpublish/*").permitAll()
-                .requestMatchers("/api/articles/delete/*").permitAll()
+
+                .requestMatchers("/api/articles/create").authenticated()
+                .requestMatchers("/api/articles/updateArticle").authenticated()
+                .requestMatchers("/api/articles/publish/*").authenticated()
+                .requestMatchers("/api/articles/unpublish/*").authenticated()
+                .requestMatchers("/api/articles/delete/*").authenticated()
                 .anyRequest().authenticated()
         ).oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults()));
         http.csrf(AbstractHttpConfigurer::disable);
