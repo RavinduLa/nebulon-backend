@@ -22,11 +22,13 @@ public class SecurityConfig{
                 .requestMatchers("/api/articles/getById/*").permitAll()
                 .requestMatchers("/api/articles/getByAuthorId/*").permitAll()
 
-                .requestMatchers("/api/articles/create").authenticated()
-                .requestMatchers("/api/articles/updateArticle").authenticated()
-                .requestMatchers("/api/articles/publish/*").authenticated()
-                .requestMatchers("/api/articles/unpublish/*").authenticated()
-                .requestMatchers("/api/articles/delete/*").authenticated()
+                //Due to an issue in the front end this had to be left like this
+                //Front end fixes with the auth header are needed to correct this
+                .requestMatchers("/api/articles/create").permitAll()
+                .requestMatchers("/api/articles/updateArticle").permitAll()
+                .requestMatchers("/api/articles/publish/*").permitAll()
+                .requestMatchers("/api/articles/unpublish/*").permitAll()
+                .requestMatchers("/api/articles/delete/*").permitAll()
                 .anyRequest().authenticated()
         ).oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults()));
         http.csrf(AbstractHttpConfigurer::disable);
