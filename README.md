@@ -4,6 +4,10 @@ Nebulon-backend is a Spring Boot application that serves as the backend for Nebu
 
 ## Table of Contents
 - [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Troubleshooting](#troubleshooting)
+- [Contact](#contact)
 
 ## Features
 
