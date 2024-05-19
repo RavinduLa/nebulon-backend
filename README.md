@@ -2,6 +2,9 @@
 
 Nebulon-backend is a Spring Boot application that serves as the backend for Nebulon, a modern content management system (CMS).
 
+## Table of Contents
+- [Features](#features)
+
 ## Features
 
 - User authentication and authorization
@@ -22,7 +25,7 @@ Before you begin, ensure you have the following installed on your local machine:
 First, clone the repository to your local machine using Git:
 
 ```bash
-git clone https://github.com/RavinduLa/nebulon-backend
+git clone https://github.com/RavinduLa/nebulon-backend.git
 cd nebulon-backend
 ```
 
