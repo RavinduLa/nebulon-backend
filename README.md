@@ -1,4 +1,4 @@
-# Nebulon-backend
+# Nebulon Backend
 
 Nebulon-backend is a Spring Boot application that serves as the backend for Nebulon, a modern content management system (CMS).
 
